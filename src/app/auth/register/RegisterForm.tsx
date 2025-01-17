@@ -45,7 +45,7 @@ export default function RegisterForm() {
   return (
     <AuthForm
       title='Register'
-      message={message}
+      topMessage={message}
       fields={fields}
       buttonText={'Register'}
       onSubmit={handleSubmit}

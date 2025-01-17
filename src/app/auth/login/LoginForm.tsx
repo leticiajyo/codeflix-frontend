@@ -10,11 +10,20 @@ export default function LoginForm() {
     e.preventDefault();
   };
 
-  const message = (
+  const topMessage = (
     <>
       New to the app?{' '}
       <a href='/auth/register' className='text-red-500 hover:underline'>
         Register
+      </a>
+    </>
+  );
+
+  const bottomMessage = (
+    <>
+      Forgot your password?{' '}
+      <a href='/auth/reset-password' className='text-red-500 hover:underline'>
+        Reset password
       </a>
     </>
   );
@@ -39,9 +48,10 @@ export default function LoginForm() {
   return (
     <AuthForm
       title='Login'
-      message={message}
+      topMessage={topMessage}
       fields={fields}
       buttonText={'Login'}
+      bottomMessage={bottomMessage}
       onSubmit={handleSubmit}
     />
   );

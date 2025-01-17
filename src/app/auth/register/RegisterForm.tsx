@@ -3,20 +3,20 @@
 import React from 'react';
 import { InputField } from '../../components/InputField';
 
-export default function LoginForm() {
+export default function RegisterForm() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    alert('submit login');
+    alert('submit register');
     e.preventDefault();
   };
 
   return (
     <form onSubmit={handleSubmit} className='space-y-4'>
       <div className='flex flex-col items-center space-y-4'>
-        <h1 className='text-3xl font-bold'>Login</h1>
+        <h1 className='text-3xl font-bold'>Register</h1>
         <p className='text-sm text-gray-500'>
-          New to the app?{' '}
-          <a href='/auth/register' className='text-red-500 hover:underline'>
-            Register
+          Already have an account?{' '}
+          <a href='/auth/login' className='text-red-500 hover:underline'>
+            Login
           </a>
         </p>
       </div>
@@ -33,13 +33,19 @@ export default function LoginForm() {
           label='Password'
           placeholder='Enter your password'
         />
+        <InputField
+          id='confirmPassword'
+          type='password'
+          label='Confirm Password'
+          placeholder='Confirm your password'
+        />
       </div>
       <div className='flex flex-col-reverse space-y-2 pt-2 sm:flex-row sm:space-x-2 sm:space-y-0'>
         <button
           className='flex w-full items-center justify-center rounded-lg bg-red-500 px-4 py-2 text-sm font-semibold text-white hover:bg-red-600 sm:px-8'
           type='submit'
         >
-          Login
+          Register
         </button>
       </div>
     </form>

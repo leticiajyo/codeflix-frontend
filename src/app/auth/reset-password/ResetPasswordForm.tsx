@@ -1,13 +1,38 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import { InputField } from '../../components/InputField';
 import { AuthForm } from '@/app/components/AuthForm';
+import { useRouter } from 'next/navigation';
+import { ValidationError } from '@/app/lib/validations/validationError';
 
 export default function ResetPasswordForm() {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    alert('submit reset password');
+  const router = useRouter();
+  const [errors, setErrors] = useState<ValidationError[]>([]);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get('email');
+
+    try {
+      const response = await fetch('/auth/reset-password/api', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email }),
+      });
+
+      if (response.ok) {
+        router.push('/auth/login');
+        return;
+      }
+
+      const errorPayload = await response.json();
+      setErrors(errorPayload);
+    } catch (error: any) {
+      alert('Unexpected error occurred');
+    }
   };
 
   const message = <>Enter your email to reset your password</>;
@@ -30,6 +55,7 @@ export default function ResetPasswordForm() {
       fields={fields}
       buttonText={'Reset Password'}
       onSubmit={handleSubmit}
+      errors={errors}
     />
   );
 }

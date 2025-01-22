@@ -7,10 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "db:mock": "json-server --watch db.json -p 3333"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "json-server": "^0.17.0",
     "next": "15.1.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

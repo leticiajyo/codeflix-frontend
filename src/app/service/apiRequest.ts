@@ -22,7 +22,9 @@ export async function apiRequest(
     ...options,
   });
 
-  const response = await fetch(`${API_URL}/${endpoint}?${queryString}`);
+  const response = await fetch(`${API_URL}/${endpoint}?${queryString}`, {
+    cache: 'no-store',
+  });
 
   if (!response.ok) {
     throw new Error(`API request failed: ${response.statusText}`);

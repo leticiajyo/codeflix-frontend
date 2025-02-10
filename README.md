@@ -7,12 +7,6 @@ npm install
 npm run dev
 ```
 
-In another terminal, run the following command to start the mock db server:
-
-```bash
-npm run db:mock
-```
-
 Now open [http://localhost:3000](http://localhost:3000) with your browser to see the app running.
 
 ## Learn More

@@ -7,5 +7,8 @@ export default {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {},
-  plugins: [require('tailwind-scrollbar-hide')],
+  plugins: [
+    require('tailwind-scrollbar-hide'),
+    require('@vidstack/react/tailwind.cjs'),
+  ],
 } satisfies Config;

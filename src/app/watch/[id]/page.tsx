@@ -3,14 +3,12 @@ import Player from '@/app/components/Player';
 import React from 'react';
 import { getMovieById } from '../../service/movieService';
 
-interface IWatchProps {
-  params: {
-    id: string;
-  };
-}
+export default async function Watch(props: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await props.params;
 
-export default async function Watch({ params }: IWatchProps) {
-  const movie = await getMovieById(params.id);
+  const movie = await getMovieById(id);
 
   if (!movie) {
     return (

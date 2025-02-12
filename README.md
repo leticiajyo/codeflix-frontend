@@ -1,9 +1,20 @@
 ## Running the project locally
 
-For running the app locally, download the project dependencies and run it with the following commands:
+For running the app locally, first ensure you have node installed and download the project dependencies:
 
 ```bash
 npm install
+```
+
+Then, run the project locally with the following command:
+
+```
+npm run dev:mocked
+```
+
+If you want to run the project calling a hosted [json-server API](https://github.com/leticiajyo/codeflix-frontend-api), run:
+
+```
 npm run dev
 ```
 

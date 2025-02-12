@@ -8,12 +8,10 @@ interface ISearchParams {
   genre?: string;
 }
 
-interface ISearchProps {
-  searchParams: ISearchParams;
-}
-
-export default async function SearchResults({ searchParams }: ISearchProps) {
-  const { title, genre } = searchParams;
+export default async function SearchResults(props: {
+  params: Promise<ISearchParams>;
+}) {
+  const { title, genre } = await props.params;
 
   const movies = await searchMovies(title, genre);
 

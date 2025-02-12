@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npm run db:mock & next dev --turbopack",
+    "dev": "next dev --turbopack",
+    "dev:mocked": "npm run db:mock & next dev --turbopack",
     "build": "next build",
-    "start": "npm run db:mock & next start",
+    "start": "next start",
     "lint": "next lint",
     "test": "jest --watch",
     "db:mock": "json-server --watch db.json -p 3333"
